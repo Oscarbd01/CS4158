@@ -68,4 +68,36 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+void shift_reduce_driver(void)
+{
+
+push(S);
+
+while(TRUE){
+    switch (action [S][T]){
+    case ERROR:
+        announce_syntax_error();
+        break
+
+    case Accept:
+        clean_up_and_finish();
+        return;
+
+    case SHIFT:
+        push(go_to[S][T])
+        scanner(& T)
+        break;
+
+    case Reduce:
+        pop(m);
+        push(go_to[S][X]);
+        break;
+
+
+
+        }
+    }
+}
+
+
 void yyerror(const char* s) {
