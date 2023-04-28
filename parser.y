@@ -68,6 +68,15 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+static map<string, OperatorEntry> sOperators{
+            // precedence 0 is reserved for "no operator".
+            {"=", OperatorEntry{"=", 1}},
+            {"<", OperatorEntry{"<", 5}},
+            {"+", OperatorEntry{"+", 10}},
+            {"-", OperatorEntry{"-", 10}},
+            {"/", OperatorEntry{"/", 50}},
+            {"*", OperatorEntry{"*", 50}}
+    };
 void shift_reduce_driver(void)
 {
 
